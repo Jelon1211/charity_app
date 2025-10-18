@@ -1,0 +1,3 @@
+type HeroPros = {
+  amount: string;
+};
