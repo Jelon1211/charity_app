@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ColorProvider from "./ColorProvider";
+import { NODE_ENV } from "../../config/const";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,8 +26,8 @@ export default function RootLayout({
   children: React.ReactNode;
   searchParams?: { [key: string]: string | undefined };
 }) {
-  const bg = searchParams?.bg || "#ffffff";
-  const text = searchParams?.text || "#000000";
+  const bg = searchParams?.bg || (NODE_ENV ? "#000" : "#fff");
+  const text = searchParams?.text || (NODE_ENV ? "#fff" : "#000");
 
   return (
     <html lang="en">

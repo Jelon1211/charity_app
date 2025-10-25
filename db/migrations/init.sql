@@ -3,7 +3,7 @@ CREATE TABLE donations (
     donated_at BIGINT UNSIGNED NOT NULL,
     amount INT UNSIGNED NOT NULL,
     purpose JSON NOT NULL,
-    source ENUM('dozbrajamy') NOT NULL,
+    source ENUM('dozbrajamy', 'web_dev') NOT NULL,
     created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     modified TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 

@@ -24,6 +24,6 @@ export function rateLimiter(): void | Response {
     );
   }
 
-  // reset aften an hour
+  // reset after an hour
   lastRequestTime = now;
 }
