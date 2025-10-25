@@ -1,4 +1,4 @@
-import { nowUnix } from "../../../helpers/nowUnix";
+import { nowUnix } from "../../../helpers/timeHelper";
 import { AddRequest } from "../../../schemas/donation.schema";
 import { mysqlHelper } from "../MysqlHelper";
 
