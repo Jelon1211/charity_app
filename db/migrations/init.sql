@@ -4,8 +4,7 @@ CREATE TABLE donations (
     amount INT UNSIGNED NOT NULL,
     purpose JSON NOT NULL,
     source ENUM('dozbrajamy', 'web_dev') NOT NULL,
-    created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    modified TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-
+    created BIGINT UNSIGNED NOT NULL,
+    modified BIGINT UNSIGNED NOT NULL,
     INDEX idx_donated_at (donated_at)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

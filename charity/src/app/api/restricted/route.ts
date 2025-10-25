@@ -3,6 +3,7 @@ import { requireAuth } from "../../../../lib/auth";
 import { rateLimiter } from "../../../../lib/rate-limit";
 import { validateRequest } from "../../../../lib/validate";
 import { DonationRequestSchema } from "../../../../schemas/donation.schema";
+import { addDonation } from "../../../../lib/mysql/queries/addDonation";
 
 export async function POST(request: NextRequest) {
   const authResult = await requireAuth(request);
@@ -22,10 +23,15 @@ export async function POST(request: NextRequest) {
 
   const { data } = validation;
 
-  console.log(data);
-  const result = { success: true, data: "response" };
-  return new Response(JSON.stringify(result), {
-    status: 200,
-    headers: { "Content-Type": "application/json" },
-  });
+  try {
+    const donation = await addDonation(data);
+
+    return NextResponse.json({ success: true, donation }, { status: 201 });
+  } catch (err) {
+    console.error("Error adding donation:", err);
+    return NextResponse.json(
+      { success: false, message: "Database error while adding donation" },
+      { status: 500 }
+    );
+  }
 }

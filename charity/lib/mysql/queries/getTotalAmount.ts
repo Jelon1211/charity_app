@@ -1,9 +1,6 @@
 import formatAmount from "../../../helpers/formatAmount";
+import { totalAmountRaw } from "../../../types/db";
 import { mysqlHelper } from "../MysqlHelper";
-
-type totalAmountRaw = {
-  total_amount: number;
-};
 
 export async function getTotalAmount() {
   const result = await mysqlHelper.query(
