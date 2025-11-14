@@ -10,7 +10,7 @@ export async function getLatestDonations() {
     `
         SELECT amount, purpose, source, donated_at
         FROM donations
-        LIMIT 5;
+        LIMIT 3;
         `
   );
   return prepareLatestDonations(result);

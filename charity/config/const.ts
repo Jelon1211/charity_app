@@ -8,6 +8,7 @@ export const NODE_ENV = process.env.NODE_ENV || "development";
 export const NODE_AUTHORIZATION = process.env.NODE_AUTHORIZATION || "123456";
 export const NEXT_PUBLIC_ENVIRONMENT =
   process.env.NEXT_PUBLIC_ENVIRONMENT || "development";
+export const NEXT_PUBLIC_AMOUNT = process.env.NEXT_PUBLIC_AMOUNT || "0";
 
 // LINKS
 export const NEXT_PUBLIC_DOZBRAJAMY =
