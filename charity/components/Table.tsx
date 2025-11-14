@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { Donation } from "../types/Table";
+import Image from "next/image";
 
 interface TableProps {
   latestDonations: Donation[];
@@ -82,20 +83,22 @@ export default function Table({ latestDonations }: TableProps) {
           onClick={prevPage}
           disabled={offset === 0 || loading}
           className={`px-3 py-1 ${
-            offset === 0 ? "opacity-40" : "hover:text-blue-400"
+            offset === 0 ? "opacity-40 cursor-default" : "cursor-pointer"
           }`}
         >
-          ←
+          <Image src="/v2.svg" alt="left arrow" width={15} height={15} />
         </button>
 
         <button
           onClick={nextPage}
           disabled={donations.length < 3 || loading}
           className={`px-3 py-1 ${
-            donations.length < 3 ? "opacity-40" : "hover:text-blue-400"
+            donations.length < 3
+              ? "opacity-40 cursor-default"
+              : "cursor-pointer"
           }`}
         >
-          →
+          <Image src="/v1.svg" alt="right arrow" width={15} height={15} />
         </button>
       </div>
     </div>
