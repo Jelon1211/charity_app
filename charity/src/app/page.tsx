@@ -1,5 +1,5 @@
-import Hero from "../../components/hero/Hero";
-import Table from "../../components/hero/Table";
+import Hero from "../../components/Hero";
+import Table from "../../components/Table";
 import { NEXT_PUBLIC_AMOUNT } from "../../config/const";
 import { getLatestDonations } from "../../lib/mysql/queries/getLatestDonations";
 import { getTotalAmount } from "../../lib/mysql/queries/getTotalAmount";

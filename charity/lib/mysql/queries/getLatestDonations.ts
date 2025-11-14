@@ -1,7 +1,7 @@
 import formatAmount from "../../../helpers/formatAmount";
 import { sourceLinks } from "../../../helpers/linksHelper";
 import { formatDateToDisplay } from "../../../helpers/timeHelper";
-import { donationsRaw, totalAmountRaw } from "../../../types/db";
+import { donationsRaw } from "../../../types/db";
 import { mysqlHelper } from "../MysqlHelper";
 
 // TODO dodać typ co zwraca
