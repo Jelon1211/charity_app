@@ -1,5 +1,3 @@
-"use client";
-
 import { Donation } from "../../types/Table";
 
 interface TableProps {
@@ -27,9 +25,7 @@ export default function Table({ latestDonations }: TableProps) {
                 return (
                   <tr key={item.id} className="divide-x divide-neutral-600">
                     <td className="px-6 py-4">{item.source_link}</td>
-                    <td className="px-6 py-4">
-                      {new Date(item.donated_at).toLocaleString("pl-PL")}
-                    </td>
+                    <td className="px-6 py-4">{item.donated_at}</td>
                     <td className="px-6 py-4">{item.amount}</td>
                     <td className="px-6 py-4">
                       {JSON.stringify(item.purpose)}

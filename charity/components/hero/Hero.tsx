@@ -1,5 +1,3 @@
-"use clinet";
-
 export default function Hero({ amount }: HeroPros) {
   return (
     <div className="flex flex-col justify-center items-center">

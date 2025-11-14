@@ -3,5 +3,5 @@ export interface Donation {
   amount: string;
   source_link: string;
   purpose: Record<string, string>;
-  donated_at: Date;
+  donated_at: string;
 }

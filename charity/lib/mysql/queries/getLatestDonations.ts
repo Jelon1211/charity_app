@@ -1,17 +1,21 @@
 import formatAmount from "../../../helpers/formatAmount";
 import { sourceLinks } from "../../../helpers/linksHelper";
-import { fromUnixSeconds } from "../../../helpers/timeHelper";
+import { formatDateToDisplay } from "../../../helpers/timeHelper";
 import { donationsRaw, totalAmountRaw } from "../../../types/db";
 import { mysqlHelper } from "../MysqlHelper";
 
 // TODO dodać typ co zwraca
-export async function getLatestDonations() {
+export async function getLatestDonations(
+  offset: number = 0,
+  limit: number = 3
+) {
   const result = await mysqlHelper.query(
     `
         SELECT amount, purpose, source, donated_at
         FROM donations
-        LIMIT 3;
-        `
+        LIMIT ? OFFSET ?;
+    `,
+    [limit, offset]
   );
   return prepareLatestDonations(result);
 }
@@ -23,7 +27,10 @@ function prepareLatestDonations(result: donationsRaw) {
       amount: formatAmount(item.amount),
       source_link: sourceLinks(item.source),
       purpose: item.purpose,
-      donated_at: fromUnixSeconds(item.donated_at),
+      donated_at: formatDateToDisplay(item.donated_at, "pl-PL", {
+        dateStyle: "medium",
+        timeZone: "Europe/Warsaw",
+      }),
     };
     return result;
   });
