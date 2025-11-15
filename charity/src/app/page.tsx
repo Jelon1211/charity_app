@@ -4,6 +4,7 @@ import Table from "../../components/Table";
 import { NEXT_PUBLIC_AMOUNT } from "../../config/const";
 import { getLatestDonations } from "../../lib/mysql/queries/getLatestDonations";
 import { getTotalAmount } from "../../lib/mysql/queries/getTotalAmount";
+import { Donation } from "../../types/Table";
 
 type TotalAmount = {
   formatted: string;
@@ -17,8 +18,8 @@ export default async function Home() {
     formatted: `${NEXT_PUBLIC_AMOUNT} zł`,
     raw: Number(NEXT_PUBLIC_AMOUNT),
   };
-  const latestDonations = await getLatestDonations();
-  // const latestDonations = null;
+  // const latestDonations = await getLatestDonations();
+  const latestDonations: Donation[] | null = null;
 
   return (
     <>
@@ -31,9 +32,10 @@ export default async function Home() {
           )}
         </div>
         <div className="flex flex-col">
-          <Table latestDonations={latestDonations} />
+          {latestDonations ? <Table latestDonations={latestDonations} /> : ""}
         </div>
-        <div className="my-4">
+
+        <div className="my-7">
           <ProgressBar goal={150} current={totalAmount.raw} />
         </div>
       </div>
