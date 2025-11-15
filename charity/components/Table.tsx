@@ -40,36 +40,75 @@ export default function Table({ latestDonations }: TableProps) {
 
   return (
     <div className="flex flex-col justify-center items-center">
-      <table className="min-w-full rounded-sm table-auto text-xs my-6">
+      <table className="min-w-full leading-normal table-auto text-xs my-6">
         <caption className="caption-top py-2 text-base">
-          Jestem transparenty. Zobacz na co i jak wpłacam.
+          Jestem transparentny. Zobacz na co i jak wpłacam.
         </caption>
-        <thead className="bg-neutral-700 divide-neutral-600">
-          <tr className="divide-x divide-neutral-600">
-            <th className="px-6 py-3 text-left">Działalność</th>
-            <th className="px-6 py-3 text-left">Data przelewu</th>
-            <th className="px-6 py-3 text-left">Kwota</th>
-            <th className="px-6 py-3 text-left">Cel</th>
+        <thead className="bg-neutral-600">
+          <tr>
+            <th className="px-5 py-3 border-b-2 border-neutral-500 text-left text-xs font-semibold uppercase tracking-wider">
+              Działalność
+            </th>
+            <th className="px-5 py-3 border-b-2 border-neutral-500 text-left text-xs font-semibold uppercase tracking-wider">
+              Data przelewu
+            </th>
+            <th className="px-5 py-3 border-b-2 border-neutral-500 text-left text-xs font-semibold uppercase tracking-wider">
+              Cel
+            </th>
+            <th className="px-5 py-3 border-b-2 border-neutral-500 text-left text-xs font-semibold uppercase tracking-wider">
+              Kwota
+            </th>
           </tr>
         </thead>
-        <tbody className="bg-gray-700 divide-y divide-neutral-600">
+        <tbody className="bg-neutral-600">
           {donations
             ? donations.map((item) => {
                 return (
-                  <tr key={item.id} className="divide-x divide-neutral-600">
-                    <td className="px-6 py-4">
+                  <tr
+                    key={item.id}
+                    className="px-5 py-5 border-b border-neutral-500 text-sm"
+                  >
+                    <td className="px-5 py-5 border-b border-neutral-500 text-sm">
                       <a
-                        href={item.source_link}
+                        href={item.source_link.link}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        {item.source_link}
+                        <div className="flex items-center">
+                          <div className="flex-shrink-0 w-10 h-10">
+                            <img
+                              className="w-full h-full rounded-full"
+                              src={item.source_link.img}
+                              alt=""
+                            />
+                          </div>
+                          <div className="ml-3">
+                            <p className="text-gray-900 whitespace-no-wrap">
+                              {item.source_link.text}
+                            </p>
+                          </div>
+                        </div>
                       </a>
                     </td>
-                    <td className="px-6 py-4">{item.donated_at}</td>
-                    <td className="px-6 py-4">{item.amount}</td>
-                    <td className="px-6 py-4">
-                      {JSON.stringify(item.purpose)}
+                    <td className="px-5 py-5 border-b border-neutral-500 text-sm">
+                      <p className="text-gray-900 whitespace-no-wrap">
+                        {item.donated_at}
+                      </p>
+                    </td>
+                    <td className="px-5 py-5 border-b border-neutral-500 text-sm">
+                      <p className="text-gray-900 whitespace-no-wrap">
+                        {" "}
+                        {JSON.stringify(item.purpose)}
+                      </p>
+                    </td>
+                    <td className="px-5 py-5 border-b border-neutral-500 text-sm">
+                      <span className="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
+                        <span
+                          aria-hidden
+                          className="absolute inset-0 bg-green-200 rounded-full"
+                        ></span>
+                        <span className="relative">{item.amount}</span>
+                      </span>
                     </td>
                   </tr>
                 );
