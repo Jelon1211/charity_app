@@ -1,10 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
-import { rateLimiter } from "../../../../lib/rate-limit";
 import { requireAuth } from "../../../../lib/auth";
+import { getIp } from "../../../../lib/get-ip";
+import { rateLimiter } from "../../../../lib/rate-limit";
 import { validateRequest } from "../../../../lib/validate";
 import { DonationRequestSchema } from "../../../../schemas/donation.schema";
 import { addDonation } from "../../../../lib/mysql/queries/addDonation";
-import { getIp } from "../../../../lib/get-ip";
 
 export async function POST(request: NextRequest) {
   const ip = getIp(request);

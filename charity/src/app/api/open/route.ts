@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
+import { getIp } from "../../../../lib/get-ip";
 import { rateLimiter } from "../../../../lib/rate-limit";
 import { getLatestDonations } from "../../../../lib/mysql/queries/getLatestDonations";
-import { getIp } from "../../../../lib/get-ip";
 
 export async function GET(request: Request) {
   const ip = getIp(request);
