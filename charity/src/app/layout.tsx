@@ -27,14 +27,21 @@ export default function RootLayout({
   searchParams?: { [key: string]: string | undefined };
 }) {
   const bg = searchParams?.bg || (NODE_ENV ? "#333" : "#fff");
-  const text = searchParams?.text || (NODE_ENV ? "#fff" : "#000");
+  const text = searchParams?.text || (NODE_ENV ? "#fff" : "#fff");
+  const bgs = searchParams?.bgs || (NODE_ENV ? "#222" : "#222");
+  const colorsecond = searchParams?.colorsecond || (NODE_ENV ? "#444" : "#444");
 
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen`}
       >
-        <ColorProvider bg={bg} text={text} />
+        <ColorProvider
+          bg={bg}
+          text={text}
+          bgs={bgs}
+          colorsecond={colorsecond}
+        />
         {children}
       </body>
     </html>

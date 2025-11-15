@@ -13,5 +13,8 @@ export async function getTotalAmount() {
 }
 
 function prepareTotalAmount(result: totalAmountRaw) {
-  return formatAmount(result.total_amount);
+  const raw = result.total_amount / 100;
+  const formatted = formatAmount(result.total_amount);
+
+  return { raw, formatted };
 }

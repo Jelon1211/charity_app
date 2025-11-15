@@ -44,31 +44,31 @@ export default function Table({ latestDonations }: TableProps) {
         <caption className="caption-top py-2 text-base">
           Jestem transparentny. Zobacz na co i jak wpłacam.
         </caption>
-        <thead className="bg-neutral-600">
+        <thead className="bg-[var(--bgs)]">
           <tr>
-            <th className="px-5 py-3 border-b-2 border-neutral-500 text-left text-xs font-semibold uppercase tracking-wider">
+            <th className="px-5 py-3 border-b-2 border-[var(--colorsecond)] text-left text-xs font-semibold uppercase tracking-wider">
               Działalność
             </th>
-            <th className="px-5 py-3 border-b-2 border-neutral-500 text-left text-xs font-semibold uppercase tracking-wider">
+            <th className="px-5 py-3 border-b-2 border-[var(--colorsecond)] text-left text-xs font-semibold uppercase tracking-wider">
               Data przelewu
             </th>
-            <th className="px-5 py-3 border-b-2 border-neutral-500 text-left text-xs font-semibold uppercase tracking-wider">
+            <th className="px-5 py-3 border-b-2 border-[var(--colorsecond)] text-left text-xs font-semibold uppercase tracking-wider">
               Cel
             </th>
-            <th className="px-5 py-3 border-b-2 border-neutral-500 text-left text-xs font-semibold uppercase tracking-wider">
+            <th className="px-5 py-3 border-b-2 border-[var(--colorsecond)] text-left text-xs font-semibold uppercase tracking-wider">
               Kwota
             </th>
           </tr>
         </thead>
-        <tbody className="bg-neutral-600">
+        <tbody className="bg-[var(--bgs)]">
           {donations
             ? donations.map((item) => {
                 return (
                   <tr
                     key={item.id}
-                    className="px-5 py-5 border-b border-neutral-500 text-sm"
+                    className="px-5 py-5 border-b border-[var(--colorsecond)] text-sm"
                   >
-                    <td className="px-5 py-5 border-b border-neutral-500 text-sm">
+                    <td className="px-5 py-5 border-b border-[var(--colorsecond)] text-sm">
                       <a
                         href={item.source_link.link}
                         target="_blank"
@@ -83,25 +83,23 @@ export default function Table({ latestDonations }: TableProps) {
                             />
                           </div>
                           <div className="ml-3">
-                            <p className="text-gray-900 whitespace-no-wrap">
+                            <p className="whitespace-no-wrap">
                               {item.source_link.text}
                             </p>
                           </div>
                         </div>
                       </a>
                     </td>
-                    <td className="px-5 py-5 border-b border-neutral-500 text-sm">
-                      <p className="text-gray-900 whitespace-no-wrap">
-                        {item.donated_at}
-                      </p>
+                    <td className="px-5 py-5 border-b border-[var(--colorsecond)] text-sm">
+                      <p className="whitespace-no-wrap">{item.donated_at}</p>
                     </td>
-                    <td className="px-5 py-5 border-b border-neutral-500 text-sm">
-                      <p className="text-gray-900 whitespace-no-wrap">
+                    <td className="px-5 py-5 border-b border-[var(--colorsecond)] text-sm">
+                      <p className="whitespace-no-wrap">
                         {" "}
                         {JSON.stringify(item.purpose)}
                       </p>
                     </td>
-                    <td className="px-5 py-5 border-b border-neutral-500 text-sm">
+                    <td className="px-5 py-5 border-b border-[var(--colorsecond)] text-sm">
                       <span className="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
                         <span
                           aria-hidden
