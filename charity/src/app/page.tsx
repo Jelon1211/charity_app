@@ -18,7 +18,7 @@ export default async function Home() {
     formatted: `${NEXT_PUBLIC_AMOUNT} zł`,
     raw: Number(NEXT_PUBLIC_AMOUNT),
   };
-  // const latestDonations = await getLatestDonations();
+  // const latestDonations: Donation[] | null = await getLatestDonations();
   const latestDonations: Donation[] | null = null;
 
   return (
