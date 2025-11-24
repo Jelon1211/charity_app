@@ -4,7 +4,7 @@ import { getIp } from "../../../../lib/get-ip";
 import { rateLimiter } from "../../../../lib/rate-limit";
 import { validateRequest } from "../../../../lib/validate";
 import { DonationRequestSchema } from "../../../../schemas/donation.schema";
-import { addDonation } from "../../../../lib/mysql/queries/addDonation";
+import { addDonation } from "../../../../lib/queries/addDonation";
 
 export async function POST(request: NextRequest) {
   const ip = getIp(request);

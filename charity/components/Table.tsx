@@ -12,6 +12,8 @@ export default function Table({ latestDonations }: TableProps) {
   const [offset, setOffset] = useState<number>(0);
   const [loading, setLoading] = useState<boolean>(false);
 
+  console.log(donations);
+
   async function loadPage(newOffset: number) {
     setLoading(true);
 
@@ -70,7 +72,7 @@ export default function Table({ latestDonations }: TableProps) {
                   >
                     <td className="px-5 py-5 border-b border-[var(--colorsecond)] text-sm">
                       <a
-                        href={item.source_link.link}
+                        href={item.source.link}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -78,13 +80,13 @@ export default function Table({ latestDonations }: TableProps) {
                           <div className="flex-shrink-0 w-10 h-10">
                             <img
                               className="w-full h-full rounded-full"
-                              src={item.source_link.img}
+                              src={item.source.img}
                               alt=""
                             />
                           </div>
                           <div className="ml-3">
                             <p className="whitespace-no-wrap">
-                              {item.source_link.text}
+                              {item.source.text}
                             </p>
                           </div>
                         </div>
@@ -94,10 +96,15 @@ export default function Table({ latestDonations }: TableProps) {
                       <p className="whitespace-no-wrap">{item.donated_at}</p>
                     </td>
                     <td className="px-5 py-5 border-b border-[var(--colorsecond)] text-sm">
-                      <p className="whitespace-no-wrap">
-                        {" "}
-                        {JSON.stringify(item.purpose)}
-                      </p>
+                      <a
+                        href={item.purpose.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <p className="whitespace-no-wrap">
+                          {item.purpose.description}
+                        </p>
+                      </a>
                     </td>
                     <td className="px-5 py-5 border-b border-[var(--colorsecond)] text-sm">
                       <span className="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">

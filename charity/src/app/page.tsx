@@ -1,23 +1,14 @@
 import Hero from "../../components/Hero";
 import ProgressBar from "../../components/ProgressBar";
 import Table from "../../components/Table";
-import { NEXT_PUBLIC_AMOUNT } from "../../config/const";
+import { getLatestDonations } from "../../lib/queries/getLatestDonattions";
+import { getTotalAmount } from "../../lib/queries/getTotalAmount";
+
 import { Donation } from "../../types/Table";
 
-type TotalAmount = {
-  formatted: string;
-  raw: number;
-};
-
 export default async function Home() {
-  //TODO: add this after more payments
-  // const totalAmount = await getTotalAmount();
-  const totalAmount: TotalAmount = {
-    formatted: `${NEXT_PUBLIC_AMOUNT} zł`,
-    raw: Number(NEXT_PUBLIC_AMOUNT),
-  };
-  // const latestDonations: Donation[] | null = await getLatestDonations();
-  const latestDonations: Donation[] | null = null;
+  const totalAmount = await getTotalAmount();
+  const latestDonations: Donation[] | null = await getLatestDonations();
 
   return (
     <>

@@ -5,6 +5,9 @@ Json:
 {
 "donated_at": int,
 "amount": int,
-"purpose": json,
+"purpose": {
+link: string,
+description: string
+},
 "source": enum ['web_dev', 'dozbrajamy']
 }
