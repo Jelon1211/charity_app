@@ -12,8 +12,6 @@ export default function Table({ latestDonations }: TableProps) {
   const [offset, setOffset] = useState<number>(0);
   const [loading, setLoading] = useState<boolean>(false);
 
-  console.log(donations);
-
   async function loadPage(newOffset: number) {
     setLoading(true);
 

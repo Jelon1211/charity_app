@@ -6,8 +6,6 @@ type ProgressBarProps = {
 export default function ProgressBar({ goal, current }: ProgressBarProps) {
   const progress = Math.min((current / goal) * 100, 100);
 
-  console.log(progress, current);
-
   return (
     <div className="w-full max-w-md mx-auto">
       <p className="text-center mb-2">
