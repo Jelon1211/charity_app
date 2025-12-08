@@ -19,8 +19,8 @@ export function sourceLinks(source: SOURCE): SourceObj {
     case SOURCE.WEB_DEV:
       sourceObj = {
         link: NEXT_PUBLIC_WEB_DEV,
-        text: "dozbrajamy.pl",
-        img: "/sources/dozbrajamy.png",
+        text: "dominikjelon.pl",
+        img: "/sources/dominikj.png",
       };
   }
 

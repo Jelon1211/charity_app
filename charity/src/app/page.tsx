@@ -1,6 +1,7 @@
 import Hero from "../../components/Hero";
 import ProgressBar from "../../components/ProgressBar";
 import Table from "../../components/Table";
+import { NEXT_PUBLIC_GOAL } from "../../config/const";
 import { getLatestDonations } from "../../lib/queries/getLatestDonattions";
 import { getTotalAmount } from "../../lib/queries/getTotalAmount";
 
@@ -25,7 +26,7 @@ export default async function Home() {
         </div>
 
         <div className="my-7">
-          <ProgressBar goal={150} current={totalAmount.raw} />
+          <ProgressBar goal={NEXT_PUBLIC_GOAL} current={totalAmount.raw} />
         </div>
       </div>
     </>

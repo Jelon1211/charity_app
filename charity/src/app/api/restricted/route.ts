@@ -5,8 +5,12 @@ import { rateLimiter } from "../../../../lib/rate-limit";
 import { validateRequest } from "../../../../lib/validate";
 import { DonationRequestSchema } from "../../../../schemas/donation.schema";
 import { addDonation } from "../../../../lib/queries/addDonation";
+import { NODE_ENV } from "../../../../config/const";
 
 export async function POST(request: NextRequest) {
+  if (NODE_ENV !== "development") {
+    return NextResponse.json({ success: false }, { status: 401 });
+  }
   const ip = getIp(request);
 
   const limit = rateLimiter(ip);

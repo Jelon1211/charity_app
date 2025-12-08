@@ -3,11 +3,11 @@ Authorization: Bearer
 /api/restricted
 Json:
 {
-"donated_at": int,
-"amount": int,
+"donated_at": 1704067200,
+"amount": 100,
 "purpose": {
-link: string,
-description: string
+"link": "https://example.com",
+"description": "Krótki opis celu"
 },
-"source": enum ['web_dev', 'dozbrajamy']
+"source": "web_dev"
 }
