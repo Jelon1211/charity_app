@@ -26,10 +26,10 @@ export default function RootLayout({
   children: React.ReactNode;
   searchParams?: { [key: string]: string | undefined };
 }) {
-  const bg = searchParams?.bg || (NODE_ENV ? "#333" : "#fff");
-  const text = searchParams?.text || (NODE_ENV ? "#fff" : "#fff");
-  const bgs = searchParams?.bgs || (NODE_ENV ? "#222" : "#222");
-  const colorsecond = searchParams?.colorsecond || (NODE_ENV ? "#444" : "#444");
+  const bg = searchParams?.bg ? "#333" : "#fff";
+  const text = searchParams?.text ? "#fff" : "#fff";
+  const bgs = searchParams?.bgs ? "#222" : "#222";
+  const colorsecond = searchParams?.colorsecond ? "#444" : "#444";
 
   return (
     <html lang="en">
