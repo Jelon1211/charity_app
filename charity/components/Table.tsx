@@ -172,7 +172,13 @@ export default function Table({ latestDonations }: TableProps) {
             offset === 0 ? "opacity-40 cursor-default" : "cursor-pointer"
           }`}
         >
-          <Image src="/v2.svg" alt="left arrow" width={15} height={15} />
+          <Image
+            src="/v2.svg"
+            alt="left arrow"
+            width={15}
+            height={15}
+            style={{ width: "auto", height: "auto" }}
+          />
         </button>
 
         <button
@@ -184,7 +190,13 @@ export default function Table({ latestDonations }: TableProps) {
               : "cursor-pointer"
           }`}
         >
-          <Image src="/v1.svg" alt="right arrow" width={15} height={15} />
+          <Image
+            src="/v1.svg"
+            alt="right arrow"
+            width={15}
+            height={15}
+            style={{ width: "auto", height: "auto" }}
+          />
         </button>
       </div>
     </div>
