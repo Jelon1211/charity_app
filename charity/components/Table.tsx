@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { Donation } from "../types/Table";
-import Image from "next/image";
+import path from "path";
 
 interface TableProps {
   latestDonations: Donation[];
@@ -154,7 +154,7 @@ export default function Table({ latestDonations }: TableProps) {
                 </td>
 
                 <td className="px-5 py-5">
-                  <span className="inline-block px-3 py-1 font-semibold text-green-900 bg-green-200 rounded-full">
+                  <span className="inline-block px-3 py-1 font-semibold text-[var(--bgs)] bg-[var(--colorsecond)] rounded-full">
                     {item.amount}
                   </span>
                 </td>
@@ -169,16 +169,21 @@ export default function Table({ latestDonations }: TableProps) {
           onClick={prevPage}
           disabled={offset === 0 || loading}
           className={`px-3 py-1 ${
-            offset === 0 ? "opacity-40 cursor-default" : "cursor-pointer"
+            offset === 0 ? "opacity-20 cursor-default" : "cursor-pointer"
           }`}
         >
-          <Image
-            src="/v2.svg"
-            alt="left arrow"
-            width={15}
-            height={15}
-            style={{ width: "auto", height: "auto" }}
-          />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="30"
+            viewBox="0 0 16 30"
+            fill="none"
+          >
+            <path
+              d="M15.207 0.353516L0.707031 14.8535L15.207 29.3535"
+              stroke="var(--colorsecond)"
+            />
+          </svg>
         </button>
 
         <button
@@ -186,17 +191,22 @@ export default function Table({ latestDonations }: TableProps) {
           disabled={donations.length < 3 || loading}
           className={`px-3 py-1 ${
             donations.length < 3
-              ? "opacity-40 cursor-default"
+              ? "opacity-20 cursor-default"
               : "cursor-pointer"
           }`}
         >
-          <Image
-            src="/v1.svg"
-            alt="right arrow"
-            width={15}
-            height={15}
-            style={{ width: "auto", height: "auto" }}
-          />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="30"
+            viewBox="0 0 16 30"
+            fill="none"
+          >
+            <path
+              d="M0.353516 29.3535L14.8535 14.8535L0.353513 0.353517"
+              stroke="var(--colorsecond)"
+            />
+          </svg>{" "}
         </button>
       </div>
     </div>

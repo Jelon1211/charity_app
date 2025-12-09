@@ -26,11 +26,6 @@ export default function RootLayout({
   children: React.ReactNode;
   searchParams?: { [key: string]: string | undefined };
 }) {
-  const bg = searchParams?.bg || "#333";
-  const text = searchParams?.text || "#fff";
-  const bgs = searchParams?.bgs || "#222";
-  const colorsecond = searchParams?.colorsecond || "#444";
-
   return (
     <html lang="en">
       <body

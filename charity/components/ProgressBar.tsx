@@ -13,9 +13,9 @@ export default function ProgressBar({ goal, current }: ProgressBarProps) {
         roku
       </p>
 
-      <div className="w-full h-4 bg-[var(--colorsecond)] rounded overflow-hidden">
+      <div className="w-full h-4 bg-[var(--bgs)] rounded overflow-hidden">
         <div
-          className="h-full bg-[var(--bgs)] transition-all"
+          className="h-full bg-[var(--colorsecond)] transition-all"
           style={{ width: `${progress}%` }}
         />
       </div>
