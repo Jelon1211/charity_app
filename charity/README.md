@@ -11,3 +11,8 @@ Json:
 },
 "source": "web_dev"
 }
+
+?bg=%230f0f0f
+&text=%23ffffff
+&bgs=%231a1a1a
+&colorsecond=%23444444
