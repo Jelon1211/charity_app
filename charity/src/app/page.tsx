@@ -2,14 +2,16 @@ import Hero from "../../components/Hero";
 import ProgressBar from "../../components/ProgressBar";
 import Table from "../../components/Table";
 import { NEXT_PUBLIC_GOAL } from "../../config/const";
-import { getLatestDonations } from "../../lib/queries/getLatestDonattions";
+import { getDonations } from "../../lib/queries/getDonattions";
+import { getThisYearDonations } from "../../lib/queries/getThisYearDonations";
 import { getTotalAmount } from "../../lib/queries/getTotalAmount";
 
 import { Donation } from "../../types/Table";
 
 export default async function Home() {
   const totalAmount = await getTotalAmount();
-  const latestDonations: Donation[] | null = await getLatestDonations();
+  const donations: Donation[] | null = await getDonations();
+  const thisYearAmount: number = await getThisYearDonations();
 
   return (
     <>
@@ -22,11 +24,11 @@ export default async function Home() {
           )}
         </div>
         <div className="flex flex-col">
-          {latestDonations ? <Table latestDonations={latestDonations} /> : ""}
+          {donations ? <Table donationsProp={donations} /> : ""}
         </div>
 
         <div className="my-7">
-          <ProgressBar goal={NEXT_PUBLIC_GOAL} current={totalAmount.raw} />
+          <ProgressBar goal={NEXT_PUBLIC_GOAL} thisYearAmount={thisYearAmount} />
         </div>
       </div>
     </>

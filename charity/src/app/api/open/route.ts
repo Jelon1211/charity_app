@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { getIp } from "../../../../lib/get-ip";
 import { rateLimiter } from "../../../../lib/rate-limit";
-import { getLatestDonations } from "../../../../lib/queries/getLatestDonattions";
+import { getDonations } from "../../../../lib/queries/getDonattions";
 
 export async function GET(request: Request) {
   const ip = getIp(request);
@@ -12,7 +12,7 @@ export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const offset = Number(searchParams.get("offset") || 0);
 
-  const donations = await getLatestDonations(offset);
+  const donations = await getDonations(offset);
 
   return NextResponse.json(donations);
 }

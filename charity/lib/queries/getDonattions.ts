@@ -8,7 +8,7 @@ import { formatDateToDisplay } from "../../helpers/timeHelper";
 import { Donation } from "../../types/Table";
 import { donationsRaw, SOURCE } from "../../types/db";
 
-export async function getLatestDonations(
+export async function getDonations(
   offset: number = 0,
   limit: number = 3
 ): Promise<Donation[]> {

@@ -4,11 +4,11 @@ import { Donation } from "../types/Table";
 import path from "path";
 
 interface TableProps {
-  latestDonations: Donation[];
+  donationsProp: Donation[];
 }
 
-export default function Table({ latestDonations }: TableProps) {
-  const [donations, setDonations] = useState<Donation[]>(latestDonations);
+export default function Table({ donationsProp }: TableProps) {
+  const [donations, setDonations] = useState<Donation[]>(donationsProp);
   const [offset, setOffset] = useState<number>(0);
   const [loading, setLoading] = useState<boolean>(false);
 
